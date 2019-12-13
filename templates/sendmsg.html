@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Sendmsg</title>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <link href="{{ url_for('static', filename='css/jquery-editable-select.css') }}" rel="stylesheet" />
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/postjson.js') }}"></script>   <!--发送消息脚本-->
+    <script language="javascript" type="text/javascript" src="{{ url_for('static', filename='js/input_enter.js') }}"></script>  <!--回车发送消息脚本-->
+
+
+    <script src="{{ url_for('static', filename='js/jquery-editable-select.js') }}"></script>
+{#    <script src="{{ url_for('static', filename='js/jquery-latest.min.js') }}"></script>#}
+
+{#    <script>$('#username').editableSelect({#}
+{#	effects: 'slide'});</script> #}
+
+</head>
+<body>
+<h1 id="status"></h1>
+<div>
+{#<input type="text" name="username" id="username">#}
+ <select name="username" class="selectpicker form-control" id="username" style="width:150px">
+              {% for o in data %}
+              <option value="{{ o.name }}">{{ o.name }}</option>
+              {% endfor %}
+            </select>
+    <script>$('.form-control').editableSelect({
+            effects: 'slide',
+            onSelect: function (element) {
+　　　　　　　//$('.shift-info').attr({'data-val':element.val(),'placeholder':'请输入或选择班次名..'});　
+　　　　　　　$('.form-control').attr('data-val',element.val())　
+       }
+  }).prop('placeholder','请输入好友');</script>
+<input type="text" name="msg" id="msg" onkeydown="keyOnClick(event);">
+<button id="btn">点击</button>
+</div>
+
+</body>
+</html>

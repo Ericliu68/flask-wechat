@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery.min.js"></script>
+    <link href="css/jquery-editable-select.css" rel="stylesheet" />
+
+    <script src="js/jquery-editable-select.js"></script>
+</head>
+<body>
+<select class="form-control shift-info">
+      <option>数据加载中..</option>
+</select>
+<script>$('.shift-info').editableSelect({
+            effects: 'slide',
+            onSelect: function (element) {
+　　　　　　　//$('.shift-info').attr({'data-val':element.val(),'placeholder':'请输入或选择班次名..'});　
+　　　　　　　$('.shift-info').attr('data-val',element.val())　
+       }
+  }).prop('placeholder','请输入或选择班次名..');</script>
+</body>
+</html>
